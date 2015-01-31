@@ -53,4 +53,16 @@ angular.module('App.directives', [])
 	return {
 		templateUrl: 'app/directives/views/messageBox.tpl.html'
 	};
+}).directive('switch', function() {
+	return {
+		template: '<div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked><label class="onoffswitch-label" for="myonoffswitch"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div>'
+	};
+}).directive('radio', function() {
+	return {
+		template: '<div class="radio"><input type="checkbox" id="radio"><label for="radio"><div class="radio-inner"></div></label></div>'
+	}
 });
+
+
+
+

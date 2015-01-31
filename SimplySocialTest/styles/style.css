@@ -394,7 +394,8 @@ th {
 body {
   font-family: proximaNovaRegular;
   color: #3f454d;
-  min-width: 768px; }
+  min-width: 768px;
+  position: relative; }
 
 input[type=text]:focus, textarea:focus {
   box-shadow: 0 0 5px #fff; }
@@ -431,9 +432,109 @@ a {
   padding: 10px 25px;
   border-radius: 3px; }
 
+/*Swtichers*/
+.onoffswitch {
+  position: relative;
+  width: 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  display: inline-block; }
+
+.onoffswitch-checkbox {
+  display: none; }
+
+.onoffswitch-label {
+  height: 25px;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+  background: #00cc99; }
+
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  -moz-transition: margin 0.3s ease-in 0s;
+  -webkit-transition: margin 0.3s ease-in 0s;
+  -o-transition: margin 0.3s ease-in 0s;
+  transition: margin 0.3s ease-in 0s; }
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.onoffswitch-inner:before {
+  padding-left: 10px;
+  background-color: #34A7C1;
+  color: #FFFFFF; }
+
+.onoffswitch-inner:after {
+  padding-right: 10px;
+  background-color: #EEEEEE;
+  color: #999999;
+  text-align: right; }
+
+.onoffswitch-switch {
+  display: block;
+  width: 25px;
+  height: 23px;
+  background: #FFFFFF;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  position: absolute;
+  top: 1px;
+  bottom: 0;
+  right: 24px;
+  -moz-transition: all 0.3s ease-in 0s;
+  -webkit-transition: all 0.3s ease-in 0s;
+  -o-transition: all 0.3s ease-in 0s;
+  transition: all 0.3s ease-in 0s; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background: #dee1e5; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 1px; }
+
+/*Radio*/
+.radio {
+  display: inline-block; }
+  .radio input {
+    display: none; }
+  .radio label {
+    display: inline-block;
+    border: 2px solid #dee1e5;
+    border-radius: 15px;
+    padding: 2px; }
+    .radio label .radio-inner {
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      border: 3px solid transparent;
+      background: #00cc99;
+      margin-left: 0; }
+
 .main {
   border-bottom: 1px solid #dee1e5;
-  position: relative; }
+  position: relative;
+  padding-bottom: 140px;
+  margin-bottom: 30px; }
 
 .header {
   background: #000;
@@ -657,14 +758,26 @@ a {
   margin: 0 auto; }
 
 .settings-section {
+  color: #70767f;
   border-bottom: 1px solid grey;
   padding: 50px 0; }
-  .settings-section:last-child {
+  .settings-section:last-of-type {
     margin-bottom: 50px; }
   .settings-section .page-title {
     margin: 0; }
-  .settings-section .form-select-list li {
-    list-stye-type: none; }
+  .settings-section .form-select-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    .settings-section .form-select-list li {
+      margin-bottom: 20px; }
+      .settings-section .form-select-list li span {
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-left: 25px;
+        overflow: hidden; }
+      .settings-section .form-select-list li:last-child {
+        margin-bottom: 0; }
   .settings-section .section-title {
     display: block;
     margin-bottom: 25px; }
