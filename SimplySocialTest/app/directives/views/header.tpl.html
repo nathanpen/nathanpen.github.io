@@ -1,14 +1,24 @@
 <header class="header">
-	<a ui-sref="app.home"><h1 class="site-title"></h1></a>
+	<h1 class="site-title" ui-sref="home"></h1>
 	<div class="header-right">
 		<div class="header-actions">
 			<span class="new-message" ng-click="showHideOverlay()"></span>
 			<input class="header-search" type="text">
-			<!--
-			<div class="header-profile">
-			<img class="header-profile-avatar" src="img/avatar.jpg">
+			<div class="header-profile" ng-click="showHideHeaderDropdown()">
+				<img class="header-profile-avatar" src="img/avatar.jpg">
+				<div class="header-dropdown-container" ng-if="headerDropdown">
+					<div class="header-dropdown">
+						<div class="dropdown-panel">
+							<ul>
+								<li>Profile</li>
+								<li>Followers</li>
+								<li>Following</li>
+								<li ui-sref="settings">Settings</li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
-			-->
 		</div>
 	</div>
 </header>

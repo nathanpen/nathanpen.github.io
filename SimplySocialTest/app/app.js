@@ -21,4 +21,17 @@ var App = angular.module('App', [
     	}
     }
 
+    $rootScope.headerDropdown = false;
+
+    $rootScope.showHideHeaderDropdown = function () {
+    	if($rootScope.headerDropdown==false){
+    		$rootScope.headerDropdown = true;
+    	}
+    	else if($rootScope.headerDropdown==true){
+    		$rootScope.headerDropdown = false;
+    	}
+    }
+
+
+
 });

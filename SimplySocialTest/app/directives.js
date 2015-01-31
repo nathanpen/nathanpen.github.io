@@ -59,7 +59,7 @@ angular.module('App.directives', [])
 	};
 }).directive('radio', function() {
 	return {
-		template: '<div class="radio"><input type="checkbox" id="radio"><label for="radio"><div class="radio-inner"></div></label></div>'
+		template: '<div class="radio"><input type="checkbox" id="radio" class="radio-checkbox" checked><label for="radio"><div class="radio-inner"></div></label></div>'
 	}
 });
 

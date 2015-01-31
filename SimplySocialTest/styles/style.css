@@ -429,8 +429,18 @@ a {
   background: #00b286;
   border: none;
   color: #fff;
-  padding: 10px 25px;
-  border-radius: 3px; }
+  padding: 10px 22px;
+  border-radius: 3px;
+  cursor: pointer; }
+
+.button-small {
+  color: #dee1e5;
+  padding: 5px 22px;
+  border-radius: 3px;
+  border: 1px solid #dee1e5;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer; }
 
 /*Swtichers*/
 .onoffswitch {
@@ -529,6 +539,8 @@ a {
       border: 3px solid transparent;
       background: #00cc99;
       margin-left: 0; }
+  .radio .radio-checkbox:checked label .radio-inner {
+    background: red; }
 
 .main {
   border-bottom: 1px solid #dee1e5;
@@ -548,26 +560,61 @@ a {
     width: 137px;
     height: 25px;
     background: url("../img/logo.png");
-    float: left; }
+    float: left;
+    cursor: pointer; }
   .header .header-actions .new-message {
     background: url("../img/message.png") no-repeat;
     display: inline-block;
     height: 32px;
-    width: 32px; }
+    width: 32px;
+    position: absolute;
+    right: 320px; }
   .header .header-actions .header-search {
     background: url("../img/sprite2.png") no-repeat bottom left transparent;
     border: 1px solid #44474b;
     border-radius: 3px;
     height: 30px;
     padding: 0px 5px;
-    color: #fff; }
+    color: #fff;
+    position: absolute;
+    right: 120px; }
   .header .header-actions .header-profile {
-    display: inline-block; }
+    display: inline-block;
+    position: absolute;
+    right: 120pxpx;
+    width: 50px;
+    background: url("../img/arrowssprite.png") no-repeat 38px 15px;
+    cursor: pointer; }
     .header .header-actions .header-profile .header-profile-avatar {
       height: 30px;
       width: 30px;
       border-radius: 3px;
       display: inline-block; }
+    .header .header-actions .header-profile .header-dropdown-container {
+      position: absolute;
+      z-index: 999;
+      min-height: 100px;
+      min-width: 115px;
+      border-radius: 3px;
+      top: 38px;
+      left: -50px;
+      background: url("../img/arrowssprite.png") no-repeat 89px -17px;
+      padding-top: 8px; }
+      .header .header-actions .header-profile .header-dropdown-container .header-dropdown {
+        background: #fff;
+        border-radius: 3px;
+        box-shadow: 0px 0px 1px 1px #dee1e5; }
+        .header .header-actions .header-profile .header-dropdown-container .header-dropdown ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0; }
+          .header .header-actions .header-profile .header-dropdown-container .header-dropdown ul li {
+            border-bottom: 1px solid #dee1e5;
+            padding: 6px 10px;
+            cursor: pointer;
+            color: #70767f; }
+            .header .header-actions .header-profile .header-dropdown-container .header-dropdown ul li:last-child {
+              border: none; }
   .header .header-right {
     float: right; }
   .header:after {
@@ -652,11 +699,11 @@ a {
       height: 40px; }
     .post-panel .post-panel-post .post-column-left {
       float: left;
-      width: 10%; }
+      width: 11%; }
     .post-panel .post-panel-post .post-column-right {
       float: right;
-      width: 83%;
-      margin-left: 18px; }
+      width: 77%;
+      margin-left: 2%; }
     .post-panel .post-panel-post .post-panel-post-author {
       font-size: 16px; }
     .post-panel .post-panel-post .post-comment {
@@ -755,16 +802,18 @@ a {
 
 .page-settings-wrap {
   width: 575px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 50px; }
+  .page-settings-wrap .page-title {
+    margin: 0;
+    font-size: 30px; }
 
 .settings-section {
   color: #70767f;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #dee1e5;
   padding: 50px 0; }
   .settings-section:last-of-type {
     margin-bottom: 50px; }
-  .settings-section .page-title {
-    margin: 0; }
   .settings-section .form-select-list {
     list-style-type: none;
     margin: 0;
@@ -784,9 +833,13 @@ a {
   .settings-section.account .section-left {
     float: left;
     width: 90px; }
-    .settings-section.account .section-left .user-avatar img {
-      width: 100%;
-      border-radius: 3px; }
+    .settings-section.account .section-left .user-avatar {
+      height: 85px;
+      overflow: hidden;
+      margin-bottom: 10px; }
+      .settings-section.account .section-left .user-avatar img {
+        width: 100%;
+        border-radius: 3px; }
   .settings-section.account .section-right {
     float: left;
     width: 250px;
@@ -794,10 +847,19 @@ a {
     .settings-section.account .section-right input[type=text] {
       width: 365px;
       height: 40px;
+      border: 1px solid #dee1e5;
       border-radius: 3px;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      background: url(../img/sprite3.png) no-repeat top left;
+      padding: 0px 40px; }
       .settings-section.account .section-right input[type=text]:last-child {
         margin-bottom: 0; }
+      .settings-section.account .section-right input[type=text].name {
+        background-position: 10px 10px; }
+      .settings-section.account .section-right input[type=text].email {
+        background-position: 10px -50px; }
+      .settings-section.account .section-right input[type=text].password {
+        background-position: 10px -109px; }
   .settings-section:after {
     content: "";
     display: table;
