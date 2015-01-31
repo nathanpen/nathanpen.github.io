@@ -12,7 +12,25 @@ angular.module('App.home', [])
 
 .controller('homeCtrl', function($scope, $state) {
 
-$scope.awesome = "this is fucking awesome";
+
+
+
+});
+angular.module('App.settings', [])
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('settings', {
+      url: "/settings",
+      templateUrl: "app/views/settings.tpl.html",
+      controller:"settingsCtrl"
+    })
+   })
+
+.controller('settingsCtrl', function($scope, $state) {
+
+
 
 
 });

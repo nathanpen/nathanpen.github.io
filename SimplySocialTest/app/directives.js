@@ -48,4 +48,9 @@ angular.module('App.directives', [])
 	return {
 		templateUrl: 'app/directives/views/footerNav.tpl.html'
 	};
+})
+.directive('messageBox', function() {
+	return {
+		templateUrl: 'app/directives/views/messageBox.tpl.html'
+	};
 });
