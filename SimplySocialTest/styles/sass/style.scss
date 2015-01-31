@@ -1,13 +1,12 @@
 /*Normalize*/
 @import 'normalize';
-
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?q7dkb0');
-	src:url('../fonts/icomoon.eot?#iefixq7dkb0') format('embedded-opentype'),
-		url('../fonts/icomoon.woff?q7dkb0') format('woff'),
-		url('../fonts/icomoon.ttf?q7dkb0') format('truetype'),
-		url('../fonts/icomoon.svg?q7dkb0#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?-8w9c18');
+	src:url('../fonts/icomoon.eot?#iefix-8w9c18') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-8w9c18') format('woff'),
+		url('../fonts/icomoon.ttf?-8w9c18') format('truetype'),
+		url('../fonts/icomoon.svg?-8w9c18#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -41,6 +40,11 @@
 .icon-heart:before {
 	content: "\e9da";
 }
+
+.icon-cancel-circle:before {
+	content: "\ea0d";
+}
+
 
 @font-face {
     font-family: proximaNovaRegular;
@@ -483,6 +487,16 @@ a {
 		margin-left:auto;
 		margin-right:auto;
 		padding: 23px;
+		.close {
+			display: block;
+			position: absolute;
+			top: -20px;
+			right: -40px;
+			width: 40px;
+			height: 40px;
+			background: url('../img/close.png') no-repeat top right;
+			cursor: pointer;
+		}
 		.message-box-title {
 			margin: 0 0 10px;
 			color: $blackFour;
