@@ -1,0 +1,42 @@
+<section class="post-panel" image="image">
+	<div class="post-panel-post">
+		<div class="post-column-left">
+			<img class="post-author-avatar" src="img/avatar.jpg">
+		</div>
+		<div class="post-column-right">
+			<span class="post-author">Sam Soffes</span>
+			<p class="post-comment">How to Get Inspired the Right Way - Designmodo <a href="#">instagram.com/p/mV0P</a></p>
+		</div>
+	</div>
+	<div class="post-image" ng-if="hasImage()">
+		<img src="img/{{image}}">
+	</div>
+	<div class="post-panel-collapsible" ng-class="{'collapsed':collapsed}">
+		<div class="post-panel-post">
+			<div class="post-column-left">
+				<img class="post-author-avatar" src="img/avatar.jpg">
+			</div>
+			<div class="post-column-right">
+				<span class="post-author">Sam Soffes</span>
+				<p class="post-comment">How to Get Inspired the Right Way - Designmodo</p>
+			</div>
+		</div>
+		<div class="post-panel-post">
+			<div class="post-column-left">
+				<img class="post-author-avatar" src="img/avatar.jpg">
+			</div>
+			<div class="post-column-right">
+				<span class="post-author">Sam Soffes</span>
+				<p class="post-comment">How to Get Inspired the Right Way - Designmodo</p>
+			</div>
+		</div>
+	</div>
+	<div class="post-panel-bottom">
+		<span class="post-expand" ng-click="toggleCollapse()">Expand</span>
+		<div class="post-panel-actions">
+			<span class="post-action"><span class="icon-undo2"></span></span>
+			<span class="post-action"><span class="icon-camera"></span></span>
+			<span class="post-action">56m</span>
+		</div>
+	</div>
+</section>
