@@ -1,0 +1,25 @@
+{
+  "name": "kurtosys test",
+  "description": "Domestly Marketplace Client side Application",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "html5-boilerplate": "~4.3.0",
+    "angular": "1.3.*",
+    "angular-bootstrap": "~0.12.0",
+    "angular-ui-router": "~0.2.15",
+    "angular-animate": "~1.4.1",
+    "angular-loading-bar": "~0.7.1",
+    "ng-lodash": "~0.2.3"
+  },
+  "resolutions": {
+    "angular": "1.3.*"
+  },
+  "dependencies": {
+    "normalize": "~1.0.4",
+    "normalize.css": "~3.0.3",
+    "bootstrap-css-only": "~3.3.4",
+    "angular-chart.js": "~0.7.3"
+  }
+}

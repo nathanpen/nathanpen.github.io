@@ -1,0 +1,109 @@
+<div class="fund-panel">
+    <div class="fund-panel-header">
+        <h3 class="fund-panel-title">{{fund.name}}</h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="fund-panel-action-bar">
+                <div class="btn-group" dropdown is-open="status.isopen">
+                    <button id="single-button" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
+                        {{currentShareClass['Bloomberg Code']}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+                        <li role="menuitem" ng-repeat="shareClass in fund.shareClasses" ng-click="selectShareClass(shareClass)"><a>{{shareClass['Bloomberg Code']}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <ul class="pull-right fund-list-details list-striped">
+                <li><strong>Classification</strong>: {{fund['Classification Taxonomy Id']}}</li>
+                <li><strong>Language</strong>: {{fund['Primary Language Id']}}</li>
+                <li><strong>Number of Share Classes</strong>: {{fund['Number Share Classes']}}</li>
+                <li><strong>Region</strong>: {{fund['Region Taxonomy Id']}}</li>
+                <li><strong>Classification</strong>: {{fund['Region Taxonomy Id']}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fund-panel-body">
+
+        <div class="fund-error-message" ng-if="fundError">
+            <span>Error: You've selected an invalid option.</span>
+        </div>
+
+        <div ng-if="!fundError">
+            <div ng-if="!isOldDate(convertToJSDate(currentShareClass['Launch Date']))">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Currency</th>
+                        <th>Asset Class</th>
+                        <th>Region</th>
+                        <th>Class Star Rating</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{currentShareClass['Price Currency Id'] || '-'}}</td>
+                        <td>{{currentShareClass['Asset Class Taxonomy Id'] || '-'}}</td>
+                        <td>{{currentShareClass['Domicile Id'] || '-'}} </td>
+                        <td><rating ng-model="currentShareClass['Morningstar - SRRI Risk Rating']" readonly="true"></rating>
+                            <span ng-if="!currentShareClass['Morningstar - SRRI Risk Rating']">-</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ISIN</th>
+                            <th>Launch Date</th>
+                            <th>1 Year Comp Return</th>
+                            <th>NAV Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{currentShareClass['ISIN Code']  || '-'}}</td>
+                            <td>{{(convertToJSDate(currentShareClass['Launch Date'])| date:'MM/dd/yy') || ('-')}}</td>
+                            <td>{{(currentShareClass['Compound Return 1 Year Annual'] |number:2 ) || ('-')}}</td>
+                            <td>{{(currentShareClass['NAV Base'] |number:2) || ('-')}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-if="isOldDate(convertToJSDate(currentShareClass['Launch Date']))">
+                <ul class="list list-striped">
+                    <li><strong>Currency</strong>: {{currentShareClass['Price Currency Id'] || '-'}}</li>
+                    <li><strong>Asset Class</strong>: {{currentShareClass['Asset Class Taxonomy Id'] || '-'}}</li>
+                    <li><strong>Region</strong>: {{currentShareClass['Domicile Id'] || '-'}}}</li>
+                    <li><strong>Class Star Rating</strong>: <rating ng-model="currentShareClass['Morningstar - SRRI Risk Rating']" readonly="true"></rating>
+                        <span ng-if="!currentShareClass['Morningstar - SRRI Risk Rating']">-</span></li>
+                    <li><strong>ISIN</strong>: {{currentShareClass['ISIN Code']  || '-'}}</li>
+                    <li><strong>Launch Date</strong>: <span class="standout-text">{{(convertToJSDate(currentShareClass['Launch Date'])| date:'MM/dd/yy') || ('-')}}</span></li>
+                    <li><strong>1 Year Comp Return</strong>:{{(currentShareClass['Compound Return 1 Year Annual'] |number:2 ) || ('-')}}</li>
+                    <li><strong>NAV Base</strong>: {{(currentShareClass['NAV Base'] |number:2) || ('-')}}</li>
+                </ul>
+            </div>
+            <p><a ng-click="togglePerformanceContainer()"> <span ng-if="showPerformance == true">- HIDE</span><span ng-if="showPerformance==false">+ SHOW</span> PERFORMANCE</a></p><div class="fund-share-performance-container" ng-class="{hideperformance:showPerformance==false}">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="fund-share-chart">
+                            <canvas id="line" class="chart chart-line" data="data"
+                                    labels="labels" legend="true" series="series"
+                                    click="onClick">
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="fund-share-performance">
+                            <p>Cumulative performance over the last year</p>
+                            <span class="fund-share-percentage">{{currentShareClass['Cumulative Return 1 Year'] | number: 0}}%<span ng-if="!currentShareClass['Cumulative Return 1 Year']">-</span> </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

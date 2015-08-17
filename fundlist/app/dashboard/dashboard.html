@@ -1,0 +1,35 @@
+<header class="header">
+    <div class="header-inner">
+        <div class="container">
+            <h1 class="header-title"><span>Fund Dashboard</span></h1>
+        </div>
+    </div>
+</header>
+<div class="view" id="view-dashboard">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <h2 class="view-title">Welcome</h2>
+            </div>
+            <div class="col-xs-6">
+                <form class="form-inline pull-right" id="fund-search-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="fund-search-input" placeholder="Search Funds" ng-model="fundFilter">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <fund-filter></fund-filter>
+            </div>
+            <div class="col-xs-9">
+                <ul id="dashboard-funds-list">
+                    <li ng-repeat="fund in vm.funds | filter:{name:fundFilter}">
+                        <fund-panel fund="fund" class="animate-repeat"></fund-panel>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
